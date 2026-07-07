@@ -1,0 +1,1313 @@
+<!doctype html>
+<html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AeroPed | PCOME Asthma Navigator</title>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20192%20192%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22g%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%22192%22%20y2%3D%22192%22%20gradientUnits%3D%22userSpaceOnUse%22%3E%3Cstop%20offset%3D%220%22%20stop-color%3D%22%25230891b2%22/%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%252322d3ee%22/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect%20width%3D%22192%22%20height%3D%22192%22%20rx%3D%2240%22%20fill%3D%22url%28%2523g%29%22/%3E%3Cg%20transform%3D%22translate%2848%2C48%29%20scale%284%29%22%20stroke%3D%22%2523ffffff%22%20stroke-width%3D%221.8%22%20fill%3D%22none%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cline%20x1%3D%2212%22%20y1%3D%222%22%20x2%3D%2212%22%20y2%3D%226%22/%3E%3Cpath%20d%3D%22M12%206%20C12%206%208.5%207%207%209.5%22/%3E%3Cpath%20d%3D%22M12%206%20C12%206%2015.5%207%2017%209.5%22/%3E%3Cpath%20d%3D%22M7%209.5%20C4.5%209.5%203.5%2012%204%2015%20C4.5%2017.5%206.5%2019%208.5%2018.5%22/%3E%3Cpath%20d%3D%22M7%209.5%20C5.5%2011%205.5%2014%207%2015%22/%3E%3Cpath%20d%3D%22M17%209.5%20C19.5%209.5%2020.5%2012%2020%2015%20C19.5%2017.5%2017.5%2019%2015.5%2018.5%22/%3E%3Cpath%20d%3D%22M17%209.5%20C18.5%2011%2018.5%2014%2017%2015%22/%3E%3C/g%3E%3C/svg%3E">
+    <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20192%20192%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22g%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%22192%22%20y2%3D%22192%22%20gradientUnits%3D%22userSpaceOnUse%22%3E%3Cstop%20offset%3D%220%22%20stop-color%3D%22%25230891b2%22/%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%252322d3ee%22/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect%20width%3D%22192%22%20height%3D%22192%22%20rx%3D%2240%22%20fill%3D%22url%28%2523g%29%22/%3E%3Cg%20transform%3D%22translate%2848%2C48%29%20scale%284%29%22%20stroke%3D%22%2523ffffff%22%20stroke-width%3D%221.8%22%20fill%3D%22none%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cline%20x1%3D%2212%22%20y1%3D%222%22%20x2%3D%2212%22%20y2%3D%226%22/%3E%3Cpath%20d%3D%22M12%206%20C12%206%208.5%207%207%209.5%22/%3E%3Cpath%20d%3D%22M12%206%20C12%206%2015.5%207%2017%209.5%22/%3E%3Cpath%20d%3D%22M7%209.5%20C4.5%209.5%203.5%2012%204%2015%20C4.5%2017.5%206.5%2019%208.5%2018.5%22/%3E%3Cpath%20d%3D%22M7%209.5%20C5.5%2011%205.5%2014%207%2015%22/%3E%3Cpath%20d%3D%22M17%209.5%20C19.5%209.5%2020.5%2012%2020%2015%20C19.5%2017.5%2017.5%2019%2015.5%2018.5%22/%3E%3Cpath%20d%3D%22M17%209.5%20C18.5%2011%2018.5%2014%2017%2015%22/%3E%3C/g%3E%3C/svg%3E">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="AeroPed">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="theme-color" content="#0a0f1c">
+    <style>
+        :root {
+            --bg: #0a0f1c;
+            --surface: #131a2e;
+            --surface-hover: #1a2340;
+            --fg: #e8edf6;
+            --muted: #6b7a99;
+            --border: #1e2a45;
+            --accent: #22d3ee;
+            --accent-dim: rgba(34, 211, 238, 0.08);
+            --success: #34d399;
+            --success-bg: rgba(52, 211, 153, 0.08);
+            --warning: #fbbf24;
+            --warning-bg: rgba(251, 191, 36, 0.08);
+            --danger: #f87171;
+            --danger-bg: rgba(248, 113, 113, 0.08);
+            --radius: 10px;
+            --mono: 'SF Mono', 'JetBrains Mono', 'Cascadia Code', ui-monospace, monospace;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Inter', system-ui, sans-serif;
+            background: var(--bg);
+            color: var(--fg);
+            line-height: 1.55;
+            min-height: 100vh;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ---- Layout ---- */
+        .app-shell {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 28px 20px 60px;
+        }
+
+        /* ---- Header ---- */
+        .app-header {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 24px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .app-logo {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, #0891b2, #22d3ee);
+            display: grid;
+            place-items: center;
+            flex-shrink: 0;
+            box-shadow: 0 2px 8px rgba(8, 145, 178, 0.3);
+        }
+
+        .app-logo svg {
+            width: 28px;
+            height: 28px;
+            color: #fff;
+        }
+
+        .app-header-text h1 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            line-height: 1.2;
+        }
+
+        .app-header-text p {
+            font-size: 0.75rem;
+            color: var(--muted);
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            margin-top: 2px;
+        }
+
+        /* ---- Disclaimers ---- */
+        .disclaimer {
+            padding: 12px 14px;
+            border-radius: var(--radius);
+            font-size: 0.8rem;
+            line-height: 1.5;
+            margin-bottom: 6px;
+            display: flex;
+            gap: 10px;
+            align-items: flex-start;
+        }
+
+        .disclaimer-poc {
+            background: var(--warning);
+            border: 1px solid var(--warning);
+            color: #0a0f1c;
+            font-weight: 800;
+            font-size: 0.95rem;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            text-align: center;
+            padding: 14px 20px;
+            display: block;
+        }
+
+        .disclaimer-poc .disclaimer-icon {
+            display: none;
+        }
+
+        .disclaimer-strict {
+            text-align: center;
+            font-weight: 700;
+            color: var(--danger);
+            font-size: 0.7rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            border: 1px dashed rgba(248, 113, 113, 0.3);
+            border-radius: var(--radius);
+            padding: 8px 12px;
+            margin-bottom: 24px;
+        }
+
+        /* ---- Section titles ---- */
+        .section-label {
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .section-label::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: var(--border);
+        }
+
+        /* ---- Cards ---- */
+        .card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 20px;
+            margin-bottom: 16px;
+        }
+
+        /* ---- Form controls ---- */
+        .field {
+            margin-bottom: 16px;
+        }
+
+        .field:last-child {
+            margin-bottom: 0;
+        }
+
+        label.field-label {
+            display: block;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--muted);
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            margin-bottom: 6px;
+        }
+
+        input[type="number"],
+        select {
+            width: 100%;
+            min-height: 48px;
+            padding: 13px 14px;
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            color: var(--fg);
+            font-size: 1rem;
+            font-family: var(--mono);
+            transition: border-color 0.15s, box-shadow 0.15s;
+            appearance: none;
+        }
+
+        select {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%236b7a99'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 10px center;
+            background-size: 18px;
+            padding-right: 36px;
+        }
+
+        input:focus, select:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px var(--accent-dim);
+        }
+
+        .field-hint {
+            font-size: 0.72rem;
+            color: var(--muted);
+            margin-top: 6px;
+            font-style: italic;
+        }
+
+        /* ---- Required marker / inline validation ---- */
+        .required-mark {
+            color: var(--danger);
+            margin-left: 2px;
+        }
+
+        .field.invalid input,
+        .field.invalid select {
+            border-color: var(--danger);
+            box-shadow: 0 0 0 3px var(--danger-bg);
+        }
+
+        .field-error {
+            display: none;
+            color: var(--danger);
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-top: 6px;
+        }
+
+        .field.invalid .field-error {
+            display: block;
+        }
+
+        .field.invalid .field-hint {
+            display: none;
+        }
+
+        /* ---- RR age reference ---- */
+        .rr-reference {
+            display: none;
+            font-size: 0.75rem;
+            color: var(--muted);
+            font-family: var(--mono);
+            margin-top: 8px;
+            padding: 9px 11px;
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            line-height: 1.6;
+        }
+
+        .rr-reference.visible {
+            display: block;
+        }
+
+        .rr-reference strong {
+            color: var(--accent);
+            font-family: inherit;
+        }
+
+        /* ---- Weight source tag ---- */
+        .weight-tag {
+            display: inline-block;
+            font-size: 0.62rem;
+            font-weight: 700;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            padding: 2px 8px;
+            border-radius: 999px;
+            margin-left: 8px;
+            background: var(--accent-dim);
+            color: var(--accent);
+            vertical-align: middle;
+        }
+
+        .weight-tag.manual {
+            background: var(--success-bg);
+            color: var(--success);
+        }
+
+        /* ---- Buttons ---- */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.15s;
+            font-family: inherit;
+        }
+
+        .btn-primary {
+            width: 100%;
+            padding: 14px 20px;
+            background: linear-gradient(135deg, #0891b2, #06b6d4);
+            color: #fff;
+            font-size: 0.95rem;
+            letter-spacing: 0.02em;
+            box-shadow: 0 2px 12px rgba(8, 145, 178, 0.25);
+        }
+
+        .btn-primary:hover {
+            box-shadow: 0 4px 20px rgba(8, 145, 178, 0.35);
+            transform: translateY(-1px);
+        }
+
+        .btn-primary:active {
+            transform: translateY(0);
+        }
+
+        .btn-secondary {
+            width: 100%;
+            padding: 12px 16px;
+            background: transparent;
+            color: var(--fg);
+            border: 1px solid var(--border);
+            font-size: 0.88rem;
+        }
+
+        .btn-secondary:hover {
+            background: var(--surface-hover);
+            border-color: var(--muted);
+        }
+
+        .btn svg {
+            width: 16px;
+            height: 16px;
+            flex-shrink: 0;
+        }
+
+        .form-actions {
+            display: flex;
+            gap: 10px;
+        }
+
+        .form-actions .btn-primary {
+            flex: 1;
+        }
+
+        .btn-reset {
+            flex: 0 0 auto;
+            width: auto;
+            padding: 14px 16px;
+            background: transparent;
+            border: 1px solid var(--border);
+            color: var(--muted);
+            font-size: 0.88rem;
+        }
+
+        .btn-reset:hover {
+            border-color: var(--danger);
+            color: var(--danger);
+            background: var(--danger-bg);
+        }
+
+        /* ---- Alert ---- */
+        .red-flag {
+            display: none;
+            background: var(--danger-bg);
+            border: 1px solid rgba(248, 113, 113, 0.25);
+            color: #fca5a5;
+            padding: 14px 16px;
+            border-radius: var(--radius);
+            margin-bottom: 24px;
+            font-weight: 600;
+            font-size: 0.88rem;
+            animation: flagIn 0.3s ease-out;
+        }
+
+        @keyframes flagIn {
+            from { opacity: 0; transform: translateY(-6px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .incomplete-warning {
+            display: none;
+            background: var(--warning-bg);
+            border: 1px solid rgba(251, 191, 36, 0.3);
+            color: #fcd34d;
+            padding: 14px 16px;
+            border-radius: var(--radius);
+            margin-bottom: 16px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            line-height: 1.5;
+            animation: flagIn 0.3s ease-out;
+        }
+
+        .incomplete-warning.visible {
+            display: block;
+        }
+
+        .incomplete-warning strong {
+            color: var(--warning);
+        }
+
+        .incomplete-warning #incomplete-warning-detail {
+            display: block;
+            margin-top: 2px;
+            font-weight: 500;
+            color: #fde68a;
+        }
+
+        /* ---- Results dashboard ---- */
+        #results-dashboard {
+            display: none;
+            margin-top: 32px;
+            animation: slideUp 0.4s ease-out;
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(16px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ---- Score display ---- */
+        .score-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 20px 24px;
+            margin-bottom: 20px;
+        }
+
+        .score-left {
+            display: flex;
+            align-items: baseline;
+            gap: 14px;
+        }
+
+        .score-value {
+            font-size: 3.2rem;
+            font-weight: 800;
+            line-height: 1;
+            font-family: var(--mono);
+            letter-spacing: -0.04em;
+        }
+
+        .score-label {
+            font-size: 0.75rem;
+            color: var(--muted);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-top: 4px;
+        }
+
+        .tier-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 14px;
+            border-radius: 999px;
+            font-weight: 700;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+        }
+
+        .tier-mild {
+            background: var(--success-bg);
+            color: var(--success);
+            border: 1px solid rgba(52, 211, 153, 0.25);
+        }
+
+        .tier-moderate {
+            background: var(--warning-bg);
+            color: var(--warning);
+            border: 1px solid rgba(251, 191, 36, 0.25);
+        }
+
+        .tier-severe {
+            background: var(--danger-bg);
+            color: var(--danger);
+            border: 1px solid rgba(248, 113, 113, 0.25);
+        }
+
+        .score-breakdown {
+            font-size: 0.72rem;
+            color: var(--muted);
+            font-family: var(--mono);
+            margin-top: 6px;
+            letter-spacing: 0.02em;
+        }
+
+        .score-chips {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-top: 8px;
+        }
+
+        .score-chip {
+            font-size: 0.68rem;
+            font-family: var(--mono);
+            padding: 3px 9px;
+            border-radius: 6px;
+            background: var(--bg);
+            border: 1px solid var(--border);
+            color: var(--muted);
+            white-space: nowrap;
+        }
+
+        .score-chip strong {
+            color: var(--fg);
+        }
+
+        /* ---- Treatment section ---- */
+        .treatment-section {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+
+        .treatment-header {
+            padding: 12px 16px;
+            border-bottom: 1px solid var(--border);
+            font-size: 0.78rem;
+            font-weight: 600;
+            color: var(--fg);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .treatment-header svg {
+            width: 15px;
+            height: 15px;
+            color: var(--accent);
+        }
+
+        .treatment-item {
+            padding: 14px 16px;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            gap: 12px;
+            align-items: flex-start;
+            cursor: pointer;
+            transition: background-color 0.12s;
+        }
+
+        .treatment-item:hover {
+            background: var(--surface-hover);
+        }
+
+        .treatment-item:last-child {
+            border-bottom: none;
+        }
+
+        .treatment-item input[type="checkbox"] {
+            width: 22px;
+            height: 22px;
+            cursor: pointer;
+            accent-color: var(--accent);
+            flex-shrink: 0;
+            margin-top: 1px;
+        }
+
+        .item-tag {
+            font-size: 0.65rem;
+            font-weight: 700;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            padding: 3px 7px;
+            border-radius: 4px;
+            background: var(--accent-dim);
+            color: var(--accent);
+            flex-shrink: 0;
+            margin-top: 1px;
+            font-family: var(--mono);
+        }
+
+        .critical-item .item-tag {
+            background: var(--danger-bg);
+            color: var(--danger);
+        }
+
+        .treatment-content {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .treatment-content strong {
+            display: block;
+            color: var(--fg);
+            font-size: 0.88rem;
+            margin-bottom: 3px;
+        }
+
+        .treatment-content span {
+            color: var(--muted);
+            font-size: 0.82rem;
+            line-height: 1.5;
+        }
+
+        .critical-item .treatment-content strong {
+            color: #fca5a5;
+        }
+
+        /* ---- Footer ---- */
+        .results-footer {
+            text-align: center;
+            margin: 28px 0 20px;
+        }
+
+        .results-footer p {
+            font-size: 0.7rem;
+            color: var(--muted);
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+
+        .app-footer {
+            text-align: center;
+            margin-top: 32px;
+            padding-top: 16px;
+            border-top: 1px solid var(--border);
+        }
+
+        .app-footer p {
+            font-size: 0.72rem;
+            color: var(--muted);
+            margin-bottom: 4px;
+        }
+
+        .app-footer a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        .app-footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* ---- Responsive ---- */
+        @media (max-width: 600px) {
+            .app-shell { padding: 16px 14px 40px; }
+            .score-row { flex-direction: column; align-items: flex-start; gap: 12px; }
+            .score-value { font-size: 2.6rem; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="app-shell">
+
+    <!-- Header -->
+    <header class="app-header">
+        <div class="app-logo">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <!-- trachea -->
+                <line x1="12" y1="2" x2="12" y2="6"/>
+                <!-- carina / bifurcation -->
+                <path d="M12 6 C12 6 8.5 7 7 9.5"/>
+                <path d="M12 6 C12 6 15.5 7 17 9.5"/>
+                <!-- left lung lobes -->
+                <path d="M7 9.5 C4.5 9.5 3.5 12 4 15 C4.5 17.5 6.5 19 8.5 18.5"/>
+                <path d="M7 9.5 C5.5 11 5.5 14 7 15"/>
+                <!-- right lung lobes -->
+                <path d="M17 9.5 C19.5 9.5 20.5 12 20 15 C19.5 17.5 17.5 19 15.5 18.5"/>
+                <path d="M17 9.5 C18.5 11 18.5 14 17 15"/>
+            </svg>
+        </div>
+        <div class="app-header-text">
+            <h1>AeroPed</h1>
+            <p>PCOME Asthma Navigator</p>
+        </div>
+    </header>
+
+    <!-- Disclaimers -->
+    <div class="disclaimer disclaimer-poc" data-od-id="disclaimer-poc" style="text-align:center">⚠ Proof of Concept Only</div>
+
+    <div class="disclaimer-strict">
+        *DISCLAIMER: Verify all recommendations against official clinical guidelines/protocols*
+    </div>
+
+    <!-- Red flag alert -->
+    <div id="red-flag" class="red-flag" data-od-id="red-flag" role="alert" aria-live="assertive">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right:8px;vertical-align:middle"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+        CRITICAL FINDING: Immediate airway/breathing intervention required.
+    </div>
+
+    <!-- Section 1: Patient Parameters -->
+    <div class="section-label" data-od-id="section-patient">01 — Patient Parameters</div>
+    <div class="card" data-od-id="card-patient-params">
+        <div class="field" id="field-age-group">
+            <label class="field-label" for="age-group">Age Cohort<span class="required-mark">*</span></label>
+            <select id="age-group" onchange="updateDefaultWeight()" aria-required="true">
+                <option value="" disabled="" selected="">-- Select Age --</option>
+                <option value="2-3">Toddler (2 - 3 years)</option>
+                <option value="4-5">Preschool (4 - 5 years)</option>
+                <option value="6-12">School Age (6 - 12 years)</option>
+                <option value="&gt;12">Adolescent (&gt; 12 years)</option>
+            </select>
+            <div class="field-error">Select an age cohort to continue.</div>
+        </div>
+        <div class="field" id="field-weight">
+            <label class="field-label" for="weight">Weight (kg)<span class="required-mark">*</span><span id="weight-tag" class="weight-tag">Est. 50th %ile</span></label>
+            <input type="number" id="weight" placeholder="Enter weight in kg" min="3" step="0.1" aria-required="true">
+            <div class="field-hint" id="weight-hint">Auto-populated weight is 50th percentile CDC median. Override with Broselow/actual weight.</div>
+            <div class="field-error">Enter a valid weight in kg.</div>
+        </div>
+    </div>
+
+    <!-- Section 2: PAS Assessment -->
+    <div class="section-label" data-od-id="section-assessment">02 — PAS Assessment</div>
+    <div class="card" data-od-id="card-pas-inputs">
+        <div class="field" id="field-resp-rate">
+            <label class="field-label" for="resp-rate">Respiratory Rate<span class="required-mark">*</span></label>
+            <input type="number" id="resp-rate" placeholder="Raw breaths/min" aria-required="true">
+            <div id="rr-reference" class="rr-reference" aria-live="polite"></div>
+            <div class="field-error">Enter a raw respiratory rate (breaths/min).</div>
+        </div>
+        <div class="field" id="field-o2-req">
+            <label class="field-label" for="o2-req">SpO2 Requirement<span class="required-mark">*</span></label>
+            <select id="o2-req" aria-required="true">
+                <option value="0" disabled="" selected="">-- Select Status --</option>
+                <option value="1">[1 pt] &gt; 95% on room air</option>
+                <option value="2">[2 pt] 90% - 95% on room air</option>
+                <option value="3">[3 pt] &lt; 90% on RA / already on O2</option>
+            </select>
+            <div class="field-error">Select an SpO2 status.</div>
+        </div>
+        <div class="field" id="field-ausc">
+            <label class="field-label" for="ausc">Auscultation<span class="required-mark">*</span></label>
+            <select id="ausc" aria-required="true">
+                <option value="0" disabled="" selected="">-- Select Lung Sounds --</option>
+                <option value="1">[1 pt] Normal / slight expiratory wheeze</option>
+                <option value="2">[2 pt] Clear expiratory wheezing</option>
+                <option value="3" data-critical="true">[3 pt] Inspiratory &amp; Expiratory wheeze / Silent chest</option>
+            </select>
+            <div class="field-error">Select lung sound findings.</div>
+        </div>
+        <div class="field" id="field-wob">
+            <label class="field-label" for="wob">Work of Breathing<span class="required-mark">*</span></label>
+            <select id="wob" aria-required="true">
+                <option value="0" disabled="" selected="">-- Select WOB --</option>
+                <option value="1">[1 pt] Normal / mild intercostal</option>
+                <option value="2">[2 pt] Intercostal &amp; substernal retractions</option>
+                <option value="3" data-critical="true">[3 pt] Intercostal, substernal &amp; supraclavicular retractions</option>
+            </select>
+            <div class="field-error">Select a work-of-breathing finding.</div>
+        </div>
+        <div class="field" id="field-speech">
+            <label class="field-label" for="speech">Speech &amp; Mentation<span class="required-mark">*</span></label>
+            <select id="speech" aria-required="true">
+                <option value="0" disabled="" selected="">-- Select Speech --</option>
+                <option value="1">[1 pt] Full sentences / normal babble</option>
+                <option value="2">[2 pt] Partial sentences / short cry</option>
+                <option value="3" data-critical="true">[3 pt] Single words / grunting / unable</option>
+            </select>
+            <div class="field-error">Select a speech/mentation finding.</div>
+        </div>
+    </div>
+
+    <!-- Incomplete assessment warning -->
+    <div id="incomplete-warning" class="incomplete-warning" role="alert" aria-live="assertive">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right:6px;vertical-align:middle"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+        <strong>Assessment incomplete.</strong>
+        <span id="incomplete-warning-detail"></span>
+    </div>
+
+    <!-- Calculate / Reset buttons -->
+    <div class="form-actions">
+        <button class="btn btn-primary" id="calc-btn" onclick="calculateTreatment()" data-od-id="btn-calculate">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+            </svg>
+            Generate Protocol Recommendations
+        </button>
+        <button class="btn btn-reset" id="reset-btn" type="button" onclick="resetForm()" data-od-id="btn-reset" title="Clear all fields for the next patient">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="1 4 1 10 7 10"></polyline>
+                <path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"></path>
+            </svg>
+            New Patient
+        </button>
+    </div>
+
+    <!-- Results Dashboard -->
+    <div id="results-dashboard" data-od-id="results-dashboard">
+        <div class="section-label" data-od-id="section-protocol">Protocol Action Plan</div>
+
+        <div class="score-row" id="score-display" data-od-id="score-display" aria-live="polite">
+            <!-- Injected via JS -->
+        </div>
+
+        <div class="treatment-section" data-od-id="treatment-section">
+            <div class="treatment-header">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                    <polyline points="14 2 14 8 20 8"></polyline>
+                    <line x1="16" y1="13" x2="8" y2="13"></line>
+                    <line x1="16" y1="17" x2="8" y2="17"></line>
+                    <polyline points="10 9 9 9 8 9"></polyline>
+                </svg>
+                Recommended Treatment Pathway <span style="color:var(--muted);font-weight:400;margin-left:4px">(select to chart)</span>
+            </div>
+            <div id="treatments">
+                <!-- Injected via JS -->
+            </div>
+        </div>
+
+        <div class="results-footer">
+            <p>*DISCLAIMER: Verify all recommendations against official clinical guidelines/protocols*</p>
+        </div>
+
+        <button class="btn btn-secondary" id="copyNarrativeBtn" onclick="copyToClipboard()" data-od-id="btn-copy">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+            </svg>
+            Copy Findings &amp; Recommendations to Clipboard
+        </button>
+    </div>
+
+    <footer class="app-footer" data-od-id="app-footer">
+        <p>AeroPed <strong id="app-version">v1.3</strong> &middot; Updated <span id="app-updated">Jul 6, 2026</span></p>
+        <p>This tool implements the <a href="https://www.rileychildrens.org/medical-education/pcome/resources/pediatric-asthma" target="_blank" rel="noopener noreferrer">Riley Children's PCOME Pediatric Asthma Protocol</a>. Always defer to current medical direction and clinical judgment.</p>
+    </footer>
+
+</div>
+
+<script>
+    const defaultWeights = {
+        '2-3': 14.0,
+        '4-5': 18.0,
+        '6-12': 28.0,
+        '>12': 50.0
+    };
+
+    // Respiratory rate thresholds shown to the user, kept in sync with the
+    // scoring logic in calculateTreatment() below.
+    const rrThresholds = {
+        '2-3':  { p1: '≤ 34', p2: '35–39', p3: '≥ 40' },
+        '4-5':  { p1: '≤ 30', p2: '31–35', p3: '≥ 36' },
+        '6-12': { p1: '≤ 26', p2: '27–30', p3: '≥ 31' },
+        '>12':  { p1: '≤ 23', p2: '24–27', p3: '≥ 28' }
+    };
+
+    const requiredFieldIds = ['age-group', 'weight', 'resp-rate', 'o2-req', 'ausc', 'wob', 'speech'];
+
+    const fieldLabels = {
+        'age-group': 'Age Cohort',
+        'weight': 'Weight',
+        'resp-rate': 'Respiratory Rate',
+        'o2-req': 'SpO2 Requirement',
+        'ausc': 'Auscultation',
+        'wob': 'Work of Breathing',
+        'speech': 'Speech & Mentation'
+    };
+
+    const fieldChecks = {
+        'age-group': () => !!document.getElementById('age-group').value,
+        'weight': () => { const v = parseFloat(document.getElementById('weight').value); return !isNaN(v) && v > 0; },
+        'resp-rate': () => { const v = parseInt(document.getElementById('resp-rate').value); return !isNaN(v) && v > 0; },
+        'o2-req': () => parseInt(document.getElementById('o2-req').value) > 0,
+        'ausc': () => parseInt(document.getElementById('ausc').value) > 0,
+        'wob': () => parseInt(document.getElementById('wob').value) > 0,
+        'speech': () => parseInt(document.getElementById('speech').value) > 0
+    };
+
+    let baseNarrative = "";
+    let narrativeCopied = false;
+
+    function hasUnsavedWork() {
+        if (!baseNarrative) {
+            // Nothing calculated yet — only "unsaved" if the user has started entering data
+            return requiredFieldIds.some(id => fieldChecks[id]());
+        }
+        // A calculation exists — unsaved only until it's been copied to the chart
+        return !narrativeCopied;
+    }
+
+    window.addEventListener('beforeunload', function (e) {
+        if (hasUnsavedWork()) {
+            e.preventDefault();
+            e.returnValue = '';
+        }
+    });
+
+    function getMissingFields() {
+        return requiredFieldIds.filter(id => !fieldChecks[id]());
+    }
+
+    function updateDefaultWeight() {
+        const ageGroup = document.getElementById('age-group').value;
+        const weightInput = document.getElementById('weight');
+        if (ageGroup && defaultWeights[ageGroup]) {
+            weightInput.value = defaultWeights[ageGroup];
+            weightInput.dataset.source = 'estimate';
+            setWeightTag('estimate');
+        }
+        updateRRReference(ageGroup);
+        clearFieldError('age-group');
+        refreshIncompleteWarningIfVisible();
+    }
+
+    function updateRRReference(ageGroup) {
+        const box = document.getElementById('rr-reference');
+        if (!ageGroup || !rrThresholds[ageGroup]) {
+            box.classList.remove('visible');
+            box.innerHTML = '';
+            return;
+        }
+        const t = rrThresholds[ageGroup];
+        box.innerHTML = `<strong>Scoring for this age (breaths/min):</strong> 1 pt ${t.p1} &nbsp;·&nbsp; 2 pt ${t.p2} &nbsp;·&nbsp; 3 pt ${t.p3}`;
+        box.classList.add('visible');
+    }
+
+    function setWeightTag(mode) {
+        const tag = document.getElementById('weight-tag');
+        if (!tag) return;
+        if (mode === 'manual') {
+            tag.textContent = 'Manual entry';
+            tag.classList.add('manual');
+        } else {
+            tag.textContent = 'Est. 50th %ile';
+            tag.classList.remove('manual');
+        }
+    }
+
+    function clearFieldError(id) {
+        const field = document.getElementById('field-' + id);
+        if (field) field.classList.remove('invalid');
+    }
+
+    function markFieldError(id) {
+        const field = document.getElementById('field-' + id);
+        if (field) field.classList.add('invalid');
+        return document.getElementById(id);
+    }
+
+    // Shows/refreshes/hides the "Assessment incomplete" summary banner.
+    // Only called unconditionally from validateForm() on a failed submit;
+    // elsewhere it's gated by refreshIncompleteWarningIfVisible() so it
+    // doesn't pop up uninvited while someone is still working through the form.
+    function updateIncompleteWarning(missing) {
+        const banner = document.getElementById('incomplete-warning');
+        const detail = document.getElementById('incomplete-warning-detail');
+        if (!missing || missing.length === 0) {
+            banner.classList.remove('visible');
+            detail.textContent = '';
+            return;
+        }
+        detail.textContent = 'Still needed: ' + missing.map(id => fieldLabels[id]).join(', ');
+        banner.classList.add('visible');
+    }
+
+    function refreshIncompleteWarningIfVisible() {
+        const banner = document.getElementById('incomplete-warning');
+        if (banner.classList.contains('visible')) {
+            updateIncompleteWarning(getMissingFields());
+        }
+    }
+
+    function validateForm() {
+        const missing = getMissingFields();
+
+        requiredFieldIds.forEach(id => {
+            if (missing.includes(id)) markFieldError(id); else clearFieldError(id);
+        });
+        updateIncompleteWarning(missing);
+
+        if (missing.length > 0) {
+            const firstInvalid = document.getElementById(missing[0]);
+            const field = firstInvalid.closest('.field');
+            (field || firstInvalid).scrollIntoView({ behavior: 'smooth', block: 'center' });
+            firstInvalid.focus({ preventScroll: true });
+            return false;
+        }
+        return true;
+    }
+
+    function resetForm() {
+        if (!confirm('Clear all fields and start a new patient assessment? This cannot be undone.')) return;
+
+        document.getElementById('age-group').selectedIndex = 0;
+
+        const weightInput = document.getElementById('weight');
+        weightInput.value = '';
+        weightInput.dataset.source = '';
+        setWeightTag('estimate');
+
+        document.getElementById('resp-rate').value = '';
+        document.getElementById('o2-req').selectedIndex = 0;
+        document.getElementById('ausc').selectedIndex = 0;
+        document.getElementById('wob').selectedIndex = 0;
+        document.getElementById('speech').selectedIndex = 0;
+
+        updateRRReference('');
+        requiredFieldIds.forEach(clearFieldError);
+        updateIncompleteWarning([]);
+
+        document.getElementById('red-flag').style.display = 'none';
+        document.getElementById('results-dashboard').style.display = 'none';
+        document.getElementById('score-display').innerHTML = '';
+        document.getElementById('treatments').innerHTML = '';
+        baseNarrative = '';
+        narrativeCopied = false;
+
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // Clear the invalid state / weight-source tag / warning banner reactively as the user fixes fields
+    document.addEventListener('DOMContentLoaded', () => {
+        document.getElementById('weight').addEventListener('input', function () {
+            this.dataset.source = 'manual';
+            setWeightTag('manual');
+            clearFieldError('weight');
+            refreshIncompleteWarningIfVisible();
+        });
+        document.getElementById('resp-rate').addEventListener('input', () => {
+            clearFieldError('resp-rate');
+            refreshIncompleteWarningIfVisible();
+        });
+        ['o2-req', 'ausc', 'wob', 'speech'].forEach(id => {
+            document.getElementById(id).addEventListener('change', () => {
+                clearFieldError(id);
+                refreshIncompleteWarningIfVisible();
+            });
+        });
+    });
+
+    function calculateTreatment() {
+        document.getElementById('red-flag').style.display = 'none';
+
+        const ageGroupSelect = document.getElementById('age-group');
+        const ageGroup = ageGroupSelect.value;
+        const ageText = ageGroupSelect.options[ageGroupSelect.selectedIndex]?.text;
+
+        const wt = parseFloat(document.getElementById('weight').value);
+        const rr = parseInt(document.getElementById('resp-rate').value);
+
+        const o2Select = document.getElementById('o2-req');
+        const o2 = parseInt(o2Select.value) || 0;
+
+        const auscSelect = document.getElementById('ausc');
+        const ausc = parseInt(auscSelect.value) || 0;
+
+        const wobSelect = document.getElementById('wob');
+        const wob = parseInt(wobSelect.value) || 0;
+
+        const speechSelect = document.getElementById('speech');
+        const speech = parseInt(speechSelect.value) || 0;
+
+        if (!validateForm()) {
+            return;
+        }
+
+        let rrScore = 1;
+        if (ageGroup === '2-3') {
+            if (rr >= 35 && rr <= 39) rrScore = 2;
+            if (rr >= 40) rrScore = 3;
+        } else if (ageGroup === '4-5') {
+            if (rr >= 31 && rr <= 35) rrScore = 2;
+            if (rr >= 36) rrScore = 3;
+        } else if (ageGroup === '6-12') {
+            if (rr >= 27 && rr <= 30) rrScore = 2;
+            if (rr >= 31) rrScore = 3;
+        } else {
+            if (rr >= 24 && rr <= 27) rrScore = 2;
+            if (rr >= 28) rrScore = 3;
+        }
+
+        if (
+            auscSelect.options[auscSelect.selectedIndex].dataset.critical ||
+            wobSelect.options[wobSelect.selectedIndex].dataset.critical ||
+            speechSelect.options[speechSelect.selectedIndex].dataset.critical
+        ) {
+            document.getElementById('red-flag').style.display = 'block';
+        }
+
+        const totalScore = rrScore + o2 + ausc + wob + speech;
+
+        let tier = '';
+        let tierClass = '';
+
+        if (totalScore >= 5 && totalScore <= 7) {
+            tier = 'Mild'; tierClass = 'tier-mild';
+        } else if (totalScore >= 8 && totalScore <= 11) {
+            tier = 'Moderate'; tierClass = 'tier-moderate';
+        } else {
+            tier = 'Critical'; tierClass = 'tier-severe';
+        }
+
+        document.getElementById('score-display').innerHTML = `
+            <div class="score-left">
+                <div>
+                    <div class="score-value">${totalScore}</div>
+                    <div class="score-label">PAS Score (5&ndash;15)</div>
+                </div>
+                <div class="score-chips">
+                    <span class="score-chip" title="Respiratory Rate">RR <strong>${rrScore}</strong></span>
+                    <span class="score-chip" title="SpO2 Requirement">O2 <strong>${o2}</strong></span>
+                    <span class="score-chip" title="Auscultation">LS <strong>${ausc}</strong></span>
+                    <span class="score-chip" title="Work of Breathing">WOB <strong>${wob}</strong></span>
+                    <span class="score-chip" title="Speech &amp; Mentation">Speech <strong>${speech}</strong></span>
+                </div>
+            </div>
+            <div class="tier-badge ${tierClass}">${tier} Protocol</div>
+        `;
+
+        let html = '';
+
+        // Albuterol MDI puffs (Mild tier, spacer-delivered) — weight-tiered, not from PCOME source
+        let albMDI = 4;
+        if (wt > 10 && wt <= 20) albMDI = 6;
+        if (wt > 20) albMDI = 8;
+
+        // Corticosteroid — PCOME source specifies IV Methylprednisolone (Solu-Medrol)
+        // only, 2 mg/kg/dose, max 60 mg/dose. Applied across all tiers per protocol.
+        const steroidDose = Math.round(Math.min(wt * 2, 60) * 10) / 10;
+
+        // Nebulized combo treatment (Moderate) — fixed unit dose per PCOME source, not weight-based
+        const nebComboDose = 'Albuterol 5 mg / Ipratropium 0.5 mg (2.5 mL unit dose vial)';
+
+        // Magnesium sulfate — PCOME source gives a 25–50 mg/kg range (max 2000 mg), shown as a range
+        const magLow = Math.round(Math.min(wt * 25, 2000));
+        const magHigh = Math.round(Math.min(wt * 50, 2000));
+
+        // Fluid bolus — decoupled from magnesium per source; conditional on decreased cap refill
+        const fluidBolus = Math.round(wt * 20);
+
+        // Universal first-line action, shown for every tier
+        let tr0 = `Monitor: HR, RR, BP, SpO2 continuously. Apply O2 to keep SpO2 > 90%.`;
+        html += `
+            <label class="treatment-item">
+                <input type="checkbox" class="treatment-box" value="${tr0}">
+                <span class="item-tag">Monitor</span>
+                <div class="treatment-content">
+                    <strong>Monitor &amp; Oxygen</strong>
+                    <span>Place on monitor (HR, RR, BP, SpO2). Apply O2 to keep SpO2 &gt; 90%.</span>
+                </div>
+            </label>`;
+
+        if (tier === 'Mild') {
+            let tr1 = `Albuterol MDI: ${albMDI} puffs with spacer. Reassess after 1 hour.`;
+            let tr2 = `Methylprednisolone (Solu-Medrol) IV: ${steroidDose} mg IV single dose (2 mg/kg/dose, max 60 mg).`;
+
+            html += `
+                <label class="treatment-item">
+                    <input type="checkbox" class="treatment-box" value="${tr1}">
+                    <span class="item-tag">Rx</span>
+                    <div class="treatment-content">
+                        <strong>Albuterol MDI</strong>
+                        <span>Consider ${albMDI} puffs with spacer. Reassess after 1 hour.</span>
+                    </div>
+                </label>
+                <label class="treatment-item">
+                    <input type="checkbox" class="treatment-box" value="${tr2}">
+                    <span class="item-tag">IV</span>
+                    <div class="treatment-content">
+                        <strong>Methylprednisolone (Solu-Medrol) IV</strong>
+                        <span>Consider ${steroidDose} mg IV single dose (2 mg/kg/dose, max 60 mg).</span>
+                    </div>
+                </label>`;
+        }
+        else if (tier === 'Moderate') {
+            let tr1 = `Nebulized Albuterol/Ipratropium: ${nebComboDose} — x3 treatments q10-20min.`;
+            let tr2 = `Methylprednisolone (Solu-Medrol) IV: ${steroidDose} mg IV single dose (2 mg/kg/dose, max 60 mg).`;
+
+            html += `
+                <label class="treatment-item">
+                    <input type="checkbox" class="treatment-box" value="${tr1}">
+                    <span class="item-tag">Neb</span>
+                    <div class="treatment-content">
+                        <strong>Nebulized Albuterol / Ipratropium</strong>
+                        <span>${nebComboDose}, repeat x3 every 10&ndash;20 min.</span>
+                    </div>
+                </label>
+                <label class="treatment-item">
+                    <input type="checkbox" class="treatment-box" value="${tr2}">
+                    <span class="item-tag">IV</span>
+                    <div class="treatment-content">
+                        <strong>Methylprednisolone (Solu-Medrol) IV</strong>
+                        <span>Consider ${steroidDose} mg IV single dose (2 mg/kg/dose, max 60 mg).</span>
+                    </div>
+                </label>
+                <div class="field-hint" style="padding:4px 16px 12px;margin-top:0">If requiring nebs more often than every 2 hours: consider NPO status and IV maintenance fluids (with potassium).</div>`;
+        }
+        else {
+            let tr1 = `Continuous Nebulized Albuterol: up to 15 mg/hr (protocol max). Titrate per local protocol/medical control.`;
+            let tr2 = `Methylprednisolone (Solu-Medrol) IV: ${steroidDose} mg IV single dose (2 mg/kg/dose, max 60 mg).`;
+            let tr3 = `Ipratropium Bromide (maintenance): 0.5 mg nebulized (one unit dose vial) q6h PRN, for age > 1 year.`;
+            let tr4 = `Magnesium Sulfate: ${magLow}-${magHigh} mg IV over 20-60 min (25-50 mg/kg/dose, max 2000 mg).`;
+            let tr5 = `Fluid Bolus (if decreased capillary refill): ${fluidBolus} mL NS (20 mL/kg). Reassess and repeat if needed.`;
+
+            html += `
+                <label class="treatment-item critical-item">
+                    <input type="checkbox" class="treatment-box" value="${tr1}">
+                    <span class="item-tag">Air</span>
+                    <div class="treatment-content">
+                        <strong>Continuous Nebulized Albuterol</strong>
+                        <span>Run up to 15 mg/hr (protocol max). Titrate per local protocol/medical control.</span>
+                    </div>
+                </label>
+                <label class="treatment-item critical-item">
+                    <input type="checkbox" class="treatment-box" value="${tr2}">
+                    <span class="item-tag">IV</span>
+                    <div class="treatment-content">
+                        <strong>Methylprednisolone (Solu-Medrol) IV</strong>
+                        <span>Consider ${steroidDose} mg IV single dose (2 mg/kg/dose, max 60 mg).</span>
+                    </div>
+                </label>
+                <label class="treatment-item critical-item">
+                    <input type="checkbox" class="treatment-box" value="${tr3}">
+                    <span class="item-tag">Neb</span>
+                    <div class="treatment-content">
+                        <strong>Ipratropium Bromide (maintenance)</strong>
+                        <span>0.5 mg nebulized (one unit dose vial) q6h PRN &mdash; for age &gt; 1 year.</span>
+                    </div>
+                </label>
+                <label class="treatment-item critical-item">
+                    <input type="checkbox" class="treatment-box" value="${tr4}">
+                    <span class="item-tag">IV</span>
+                    <div class="treatment-content">
+                        <strong>Magnesium Sulfate</strong>
+                        <span>Consider ${magLow}&ndash;${magHigh} mg IV over 20&ndash;60 min (25&ndash;50 mg/kg/dose, max 2000 mg).</span>
+                    </div>
+                </label>
+                <label class="treatment-item critical-item">
+                    <input type="checkbox" class="treatment-box" value="${tr5}">
+                    <span class="item-tag">IV</span>
+                    <div class="treatment-content">
+                        <strong>Fluid Bolus</strong>
+                        <span>If decreased capillary refill: ${fluidBolus} mL NS (20 mL/kg). Reassess and repeat if needed.</span>
+                    </div>
+                </label>
+                <div class="field-hint" style="padding:4px 16px 12px;margin-top:0">Impending respiratory failure: prepare for intubation (cuffed ETT preferred) &mdash; see Intubation/RSI protocol. If intubated: 100% FiO2, low rate, short I-time; titrate for SpO2 low-90s; permissive hypercapnia (pH &ge; 7.2); continue sedation &plusmn; paralysis per Intubation/RSI protocol.</div>`;
+        }
+
+        document.getElementById('treatments').innerHTML = html;
+        document.getElementById('results-dashboard').style.display = 'block';
+
+        // Build the base narrative without the treatments yet
+        const dateString = new Date().toLocaleString();
+        narrativeCopied = false;
+        baseNarrative = `--- AERO-PED PCOME ASTHMA ASSESSMENT (POC TOOL) ---\n`;
+        baseNarrative += `*DISCLAIMER: Verify all recommendations against official clinical guidelines/protocols*\n`;
+        baseNarrative += `Ref: Riley Children's PCOME Pediatric Asthma Protocol\n\n`;
+        baseNarrative += `Time: ${dateString}\n`;
+        baseNarrative += `Age Group: ${ageText}\n`;
+        const weightSource = document.getElementById('weight').dataset.source === 'manual' ? 'manually entered' : 'age-based estimate';
+        baseNarrative += `Weight: ${wt} kg (${weightSource})\n\n`;
+
+        baseNarrative += `PAS SCORE: ${totalScore} (${tier.toUpperCase()})\n`;
+        baseNarrative += `- Resp Rate: ${rr} / min (${rrScore} pts)\n`;
+        baseNarrative += `- O2 Req: ${o2Select.options[o2Select.selectedIndex].text}\n`;
+        baseNarrative += `- Auscultation: ${auscSelect.options[auscSelect.selectedIndex].text}\n`;
+        baseNarrative += `- WOB: ${wobSelect.options[wobSelect.selectedIndex].text}\n`;
+        baseNarrative += `- Speech: ${speechSelect.options[speechSelect.selectedIndex].text}\n\n`;
+
+        // Reset copy button
+        const copyBtn = document.getElementById('copyNarrativeBtn');
+        copyBtn.innerHTML = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> Copy Findings & Recommendations to Clipboard`;
+
+        document.getElementById('results-dashboard').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function copyToClipboard() {
+        if (!baseNarrative) return;
+
+        let finalNarrative = baseNarrative;
+        finalNarrative += `Treatment Initiated:\n`;
+
+        const checkboxes = document.querySelectorAll('.treatment-box:checked');
+
+        if (checkboxes.length === 0) {
+            finalNarrative += `- No protocol interventions selected.\n`;
+        } else {
+            checkboxes.forEach(box => {
+                finalNarrative += `- ${box.value}\n`;
+            });
+        }
+
+        finalNarrative += `----------------------------------------`;
+
+        navigator.clipboard.writeText(finalNarrative).then(() => {
+            narrativeCopied = true;
+            const copyBtn = document.getElementById('copyNarrativeBtn');
+            copyBtn.innerHTML = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Copied to Clipboard!`;
+
+            setTimeout(() => {
+                copyBtn.innerHTML = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> Copy Findings & Recommendations to Clipboard`;
+            }, 3000);
+        }).catch(err => {
+            console.error('Failed to copy text: ', err);
+            alert("Clipboard copy failed. Please manually select and copy the text.");
+        });
+    }
+</script>
+
+
+
+</body></html>
